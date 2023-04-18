@@ -34,10 +34,12 @@ namespace DataVisualization_Chart
             int range = 20;
             for (int i = 0; i < points; i++)
             {
-                x.Add(i - points/2);
+                int angle = i - points / 2;
+                x.Add(angle);
                 //y.Add(Math.Pow((i - 10), 2));
                 //x.Add(rng.Next(-100, 101));
-                y.Add(rng.Next(-range, range));
+                //y.Add(rng.Next(-range, range));
+                y.Add(10.0 * Math.Sin(Math.PI / 180.0 * (double)angle));
             }
         }
 
