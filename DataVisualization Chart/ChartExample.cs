@@ -20,9 +20,10 @@ namespace DataVisualization_Chart
 {
     public partial class ChartExample : Form
     {
-        string name = "myData";
+        string name = "Sine";
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        bool plotClicked = false;
         public ChartExample()
         {
             Random rng = new Random();
@@ -45,22 +46,28 @@ namespace DataVisualization_Chart
 
         private void plot_Click(object sender, EventArgs e)
         {
-            chart1.BackColor = Color.LightBlue;
-            chart1.Series.Add(name);
-            chart1.Series[name].Color = Color.DarkSlateGray;
-            // chart1.Series[name].Label = "Y = #"+Y_Label+"\nX = #"+X_Label;
-            chart1.ChartAreas[0].AxisX.TitleForeColor = Color.Gold;
+            if (!plotClicked)
+            {
+                plotClicked = true;
+                chart1.BackColor = Color.LightBlue;
+                chart1.Series.Add(name);
+                //chart1.Series[name].Color = Color.DarkSlateGray;
+                chart1.Series[name].Color = Color.Magenta;
+                // chart1.Series[name].Label = "Y = #"+Y_Label+"\nX = #"+X_Label;
+                chart1.ChartAreas[0].AxisX.TitleForeColor = Color.Gold;
 
-            chart1.Series[name].Points.DataBindXY(x, y);
-            chart1.Series[name].ChartArea = "ChartArea1";
-            chart1.Series[name].SetDefault(true);
-            chart1.Series[name].Enabled = true;
-            chart1.Visible = true;
-            chart1.Show();
-            comboBox1.Enabled = true;
+                chart1.Series[name].Points.DataBindXY(x, y);
+                chart1.Series[name].ChartArea = "ChartArea1";
+                chart1.Series[name].SetDefault(true);
+                chart1.Series[name].Enabled = true;
+                chart1.Visible = true;
+                chart1.Show();
+                comboBox1.Enabled = true;
+            }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chart1.BackColor = Color.White;
             string s = comboBox1.SelectedItem.ToString();
             switch (s)
             {
