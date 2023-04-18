@@ -1,6 +1,6 @@
 ﻿namespace DataVisualization_Chart
 {
-    partial class Form1
+    partial class ChartExample
     {
         /// <summary>
         /// Required designer variable.

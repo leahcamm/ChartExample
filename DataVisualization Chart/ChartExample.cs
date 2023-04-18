@@ -18,21 +18,26 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DataVisualization_Chart
 {
-    public partial class Form1 : Form
+    public partial class ChartExample : Form
     {
         string name = "myData";
         List<double> x = new List<double>();
         List<double> y = new List<double>();
-        public Form1()
+        public ChartExample()
         {
+            Random rng = new Random();
             InitializeComponent();
             string[] charttype = new string[] { "Area", "Bar", "Bubble", "Column", "Doughnut", "Line", "Point", "Funnel",
                 "RangeBar", "Spline", "SplineArea", "StepLine" };
             comboBox1.Items.AddRange(charttype);
-            for (int i = 0; i < 21; i++)
+            int points = 1000;
+            int range = 20;
+            for (int i = 0; i < points; i++)
             {
-                x.Add(i - 10);
-                y.Add(Math.Pow((i - 10), 2));
+                x.Add(i - points/2);
+                //y.Add(Math.Pow((i - 10), 2));
+                //x.Add(rng.Next(-100, 101));
+                y.Add(rng.Next(-range, range));
             }
         }
 
