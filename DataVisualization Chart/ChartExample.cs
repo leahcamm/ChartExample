@@ -53,7 +53,7 @@ namespace DataVisualization_Chart
                 chart1.Series.Add(name);
                 //chart1.Series[name].Color = Color.DarkSlateGray;
                 chart1.Series[name].Color = Color.Magenta;
-                // chart1.Series[name].Label = "Y = #"+Y_Label+"\nX = #"+X_Label;
+               // chart1.Series[name].Label = "Y = #"+Y_Label+"\nX = #"+X_Label;
                 chart1.ChartAreas[0].AxisX.TitleForeColor = Color.Gold;
 
                 chart1.Series[name].Points.DataBindXY(x, y);
